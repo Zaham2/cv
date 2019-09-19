@@ -13,15 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import sys
+sys.path.insert(0, 'D:\Programming\Dev\secondPortf\src\jobs')
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 # added imports
 from django.conf import settings
 from django.conf.urls.static import static
+import jobs.views   #IDE Gives error but server runs and page loads!!
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                  path('admin/', admin.site.urls),
+                  path('', jobs.views.home, name='home')
+              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Adding this static line makes it so I can see media files in the admin view... SK !!?
