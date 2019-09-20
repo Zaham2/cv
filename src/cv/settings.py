@@ -120,11 +120,19 @@ USE_TZ = True
 
 # STATIC_URL = '/eggs/'
 
+# ------------------
+#  To load a static file
+#
+# 1- STATIC_ROOT , STATIC_URL , STATICFILES_DIRS
+# 2- In the .html of the page you want the file to appear:
+#           -At the very top(before using the file) insert {% load staticfiles %}
+#           -Where you want the file to be loaded insert {% static 'File_name' %}
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'cv/static')
+    os.path.join(BASE_DIR, 'cv/static')
 ]
 
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'  # This changes the URL when a staticfile is loaded
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")

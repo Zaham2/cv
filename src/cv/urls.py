@@ -28,8 +28,7 @@ import jobs.views  # IDE Gives error but server runs and page loads!!
 urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('', jobs.views.home, name='home'),
-                  path('blog/', include('blog.urls')),
-                  path('ay7agaHena/', include('blog.urls'))
+                  # path('blog/', include('blog.urls')), intentionally removed
               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Adding this static line makes it so I can see media files in the admin view... SK !!?
